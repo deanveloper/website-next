@@ -28,7 +28,7 @@ export default class NavbarElem extends Vue {
 	margin: 0 2px;
 	font-size: 16px;
 
-	color: orange;
+	color: rgba(255, 165, 0, 1.0);
 	
 	cursor: pointer;
 	user-select: none;
