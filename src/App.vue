@@ -1,23 +1,28 @@
 <template>
 	<div id="app">
-		<div class="background" v-html="beans"></div>
+		<div class="background" v-html="bgWord"></div>
 		<Navbar :links="links" />
 		<router-view />
 	</div>
 </template>
 
 <script lang="ts">
+import 'vue-router';
 import { Component, Vue } from "vue-property-decorator";
 import HelloWorld from "./components/HelloWorld.vue";
 import Navbar from "./components/Navbar.vue";
 
 @Component({
-	components: { HelloWorld, Navbar }
+	components: { HelloWorld, Navbar },
 })
 export default class App extends Vue {
 	public links: Array<{ name: string; url: string; defClass?: string }> = [];
 
-	public beans: string = "beans&ZeroWidthSpace;".repeat(3000);
+	public bgWord: string = "beans"
+		.split("")
+		.join("&ZeroWidthSpace;")
+		.concat("&ZeroWidthSpace;")
+		.repeat(2000);
 
 	created() {
 		this.links = this!.$router!.options!.routes!.map((route) => {
@@ -31,10 +36,11 @@ export default class App extends Vue {
 </script>
 
 <style lang="scss">
-html, body {
+html,
+body {
 	padding: 0;
 	margin: 0;
-	
+
 	background: #111;
 }
 
@@ -50,22 +56,21 @@ html, body {
 @font-face {
 	font-family: mazeletter;
 
-    src: url('./assets/mazeletter-path.eot');
+	src: url("./assets/mazeletter-path.eot");
 
-    src: url('./assets/mazeletter-path.eot') format('embedded-opentype'),
-         url('./assets/mazeletter-path.woff') format('woff'),
-         url('./assets/mazeletter-path.woff2') format('woff2'),
-         url('./assets/mazeletter-path.ttf') format('truetype'),
-         url('./assets/mazeletter-path.svg') format('svg');
+	src: url("./assets/mazeletter-path.eot") format("embedded-opentype"),
+		url("./assets/mazeletter-path.woff") format("woff"),
+		url("./assets/mazeletter-path.woff2") format("woff2"),
+		url("./assets/mazeletter-path.ttf") format("truetype"),
+		url("./assets/mazeletter-path.svg") format("svg");
 
-    font-weight: normal;
-    font-style: normal;
+	font-weight: normal;
+	font-style: normal;
 }
 
 .background {
 	position: fixed;
-	width: 200%;
-	height: 100%;
+	width: 125%;
 	z-index: -1;
 	user-select: none;
 
@@ -74,8 +79,8 @@ html, body {
 	font-size: 100px;
 	line-height: 101px;
 
-	background: #151515;
-	color: #111;
+	background: #050505;
+	color: #020202;
 
 	font-weight: bold;
 }
