@@ -18,11 +18,7 @@ import Navbar from "./components/Navbar.vue";
 export default class App extends Vue {
 	public links: Array<{ name: string; url: string; defClass?: string }> = [];
 
-	public bgWord: string = "beans"
-		.split("")
-		.join("&ZeroWidthSpace;")
-		.concat("&ZeroWidthSpace;")
-		.repeat(2000);
+	public bgWord: string = "beans".repeat(2000);
 
 	created() {
 		this.links = this!.$router!.options!.routes!.map((route) => {
@@ -78,6 +74,7 @@ body {
 	text-align: left;
 	font-size: 100px;
 	line-height: 101px;
+	word-break: break-all;
 
 	background: #050505;
 	color: #020202;

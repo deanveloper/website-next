@@ -1,11 +1,7 @@
 <template>
-	<div :class="outerClass">
-		<router-link :to="link">
-			<div :class="innerClass">
-				<slot></slot>
-			</div>
-		</router-link>
-	</div>
+	<router-link :to="link" tag="div" class="navbar-item" exact-active-class="navbar-item-exact">
+		<slot></slot>
+	</router-link>
 </template>
 
 <script lang="ts">
@@ -16,31 +12,34 @@ import { Vue, Component, Prop } from "vue-property-decorator";
 export default class NavbarElem extends Vue {
 	@Prop({ required: true })
 	public link!: string;
-
-	@Prop({default: "navbar-item-outer"})
-	public outerClass!: string;
-
-	@Prop({default: "navbar-item-inner"})
-	public innerClass!: string;
 }
 </script>
 
 <style scoped lang="scss">
-.navbar-item-outer {
-	height: 100%;
-	margin: 0 2px;
-}
+.navbar-item {
+	box-sizing: border-box;
 
-.navbar-item-inner {
 	display: flex;
 	align-items: center;
 
-	padding: 0 50px;
-	font-size: 16px;
-
 	position: relative;
 	height: 100%;
+	padding: 0 30px;
+	margin: 0 2px;
+	font-size: 16px;
 
-	background: red;
+	color: orange;
+	
+	cursor: pointer;
+	user-select: none;
+
+	transition: border-bottom 0.25s;
+	border-bottom: 3px solid rgba(255, 165, 0, 0.1);
+	&:hover {
+		border-bottom: 3px solid rgba(255, 165, 0, 0.2);
+	}
+	&.navbar-item-exact {
+		border-bottom: 3px solid rgba(255, 165, 0, 0.8);
+	}
 }
 </style>
