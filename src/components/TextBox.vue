@@ -1,7 +1,7 @@
 <template>
 	<div class="text-box-container">
 		<div><slot></slot></div>
-		<input :class="[inputClass, `text-box-input`]" v-model="inputVal">
+		<textarea :class="[inputClass, `text-box-input`]" v-model="inputVal" />
 	</div>
 </template>
 
@@ -20,11 +20,11 @@ export default class TextBox extends Vue {
 	@Prop({default: ""})
 	inputClass!: string;
 
-	get inputVal() {
+	get inputVal(): string {
 		return this.value;
 	}
 
-	set inputVal(newVal) {
+	set inputVal(newVal: string) {
 		this.$emit('input', newVal);
 	}
 }
@@ -38,12 +38,17 @@ export default class TextBox extends Vue {
 }
 
 .text-box-input {
+	box-sizing: border-box;
+
 	box-shadow: 3px 3px rgba(255, 165, 0, 1);
 	outline: 0;
 
 	background-color: white;
-	padding: 15px;
+	padding: 10px;
 
 	border-radius: 10px;
+    resize: none;
+
+	width: 100%;
 }
 </style>

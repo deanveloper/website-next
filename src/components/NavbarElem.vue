@@ -38,7 +38,7 @@ export default class NavbarElem extends Vue {
 	border-bottom: 3px solid rgba(255, 165, 0, 0.1);
 	&:hover, &:focus {
 		outline: 0;
-		border-bottom: 3px solid rgba(255, 165, 0, 0.2);
+		border-bottom: 3px solid rgba(255, 165, 0, 0.4);
 	}
 	&.navbar-item-exact {
 		border-bottom: 3px solid rgba(255, 165, 0, 0.8);
