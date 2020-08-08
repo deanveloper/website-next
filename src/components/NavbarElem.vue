@@ -1,11 +1,10 @@
 <template>
-	<router-link :to="link" tag="div" class="navbar-item" exact-active-class="navbar-item-exact">
+	<router-link :to="link" class="navbar-item" exact-active-class="navbar-item-exact" tabindex="0">
 		<slot></slot>
 	</router-link>
 </template>
 
 <script lang="ts">
-import "reflect-metadata";
 import { Vue, Component, Prop } from "vue-property-decorator";
 
 @Component
@@ -29,13 +28,16 @@ export default class NavbarElem extends Vue {
 	font-size: 16px;
 
 	color: rgba(255, 165, 0, 1.0);
+
+	text-decoration: none;
 	
 	cursor: pointer;
 	user-select: none;
 
 	transition: border-bottom 0.25s;
 	border-bottom: 3px solid rgba(255, 165, 0, 0.1);
-	&:hover {
+	&:hover, &:focus {
+		outline: 0;
 		border-bottom: 3px solid rgba(255, 165, 0, 0.2);
 	}
 	&.navbar-item-exact {

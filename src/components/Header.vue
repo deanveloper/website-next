@@ -8,7 +8,6 @@
 </template>
 
 <script lang="ts">
-import "reflect-metadata";
 import { Vue, Component, Prop } from "vue-property-decorator";
 
 import Navbar from "./Navbar.vue";

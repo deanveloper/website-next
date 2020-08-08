@@ -2,18 +2,19 @@
 	<div id="app">
 		<div class="background" v-html="bgWord"></div>
 		<Navbar :links="links" />
-		<router-view />
+		<main class="page-container">
+			<router-view class="page"/>
+		</main>
 	</div>
 </template>
 
 <script lang="ts">
 import 'vue-router';
 import { Component, Vue } from "vue-property-decorator";
-import HelloWorld from "./components/HelloWorld.vue";
 import Navbar from "./components/Navbar.vue";
 
 @Component({
-	components: { HelloWorld, Navbar },
+	components: { Navbar },
 })
 export default class App extends Vue {
 	public links: Array<{ name: string; url: string; defClass?: string }> = [];
@@ -36,17 +37,33 @@ html,
 body {
 	padding: 0;
 	margin: 0;
+}
 
-	background: #111;
+.page-container {
+	padding-top: 75px;
 }
 
 #app {
-	margin-top: 0;
+	margin: 0;
 
 	font-family: Avenir, Helvetica, Arial, sans-serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	text-align: center;
+
+	width: 100%;
+}
+
+.page {
+	max-width: 90%;
+	width: 1000px;
+	margin: auto;
+
+	box-sizing: border-box;
+	padding: 30px;
+	
+	background-color: #101010;
+	color: white;
 }
 
 @font-face {
