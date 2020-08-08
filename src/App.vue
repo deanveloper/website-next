@@ -1,32 +1,82 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
-  </div>
+	<div id="app">
+		<div class="background" v-html="beans"></div>
+		<Navbar :links="links" />
+		<router-view />
+	</div>
 </template>
 
-<style>
+<script lang="ts">
+import { Component, Vue } from "vue-property-decorator";
+import HelloWorld from "./components/HelloWorld.vue";
+import Navbar from "./components/Navbar.vue";
+
+@Component({
+	components: { HelloWorld, Navbar }
+})
+export default class App extends Vue {
+	public links: Array<{ name: string; url: string; defClass?: string }> = [];
+
+	public beans: string = "beans&ZeroWidthSpace;".repeat(3000);
+
+	created() {
+		this.links = this!.$router!.options!.routes!.map((route) => {
+			return {
+				name: route.name ?? "",
+				url: route.path ?? "",
+			};
+		});
+	}
+}
+</script>
+
+<style lang="scss">
+html, body {
+	padding: 0;
+	margin: 0;
+	
+	background: #111;
+}
+
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+	margin-top: 0;
+
+	font-family: Avenir, Helvetica, Arial, sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	text-align: center;
 }
 
-#nav {
-  padding: 30px;
+@font-face {
+	font-family: mazeletter;
+
+    src: url('./assets/mazeletter-path.eot');
+
+    src: url('./assets/mazeletter-path.eot') format('embedded-opentype'),
+         url('./assets/mazeletter-path.woff') format('woff'),
+         url('./assets/mazeletter-path.woff2') format('woff2'),
+         url('./assets/mazeletter-path.ttf') format('truetype'),
+         url('./assets/mazeletter-path.svg') format('svg');
+
+    font-weight: normal;
+    font-style: normal;
 }
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
+.background {
+	position: fixed;
+	width: 200%;
+	height: 100%;
+	z-index: -1;
+	user-select: none;
 
-#nav a.router-link-exact-active {
-  color: #42b983;
+	font-family: mazeletter;
+	text-align: left;
+	font-size: 100px;
+	line-height: 101px;
+
+	background: #151515;
+	color: #111;
+
+	font-weight: bold;
 }
 </style>
