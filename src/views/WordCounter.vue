@@ -37,16 +37,16 @@ export default class WordCounter extends Vue {
 	public text: string = "";
 
 	get lines(): number {
-		return this.text.match(/\p{Zl}/gsu)?.length ?? 0;
+		return this.text === "" ? 0 : this.text.split("\n").length;
 	}
 	get words(): number {
-		return this.text.match(/[$\p{Z}]+[\p{L}\p{N}][^\p{Z}]+/gu)?.length ?? 0;
+		return this.text.match(/(^|\p{Z})+.*?(\p{L}|\p{N})+/mgu)?.length ?? 0;
 	}
 	get letters(): number {
-		return this.text.match(/\p{Z}/gu)?.length ?? 0;
+		return this.text.match(/\p{L}/mgu)?.length ?? 0;
 	}
 	get characters(): number {
-		return this.text.match(/\p{Any}/gu)?.length ?? 0;
+		return this.text.match(/\p{Any}/mgu)?.length ?? 0;
 	}
 }
 </script>
