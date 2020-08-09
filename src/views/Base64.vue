@@ -2,10 +2,10 @@
 	<div class="page-base64">
 		<h1>Base64 Converter</h1>
 		<div class="boxes">
-			<TextBox v-model="text" class="box">
+			<TextBox v-model="text" inputClass="taller-box" class="tbox-wrapper">
 				<h1>Text</h1>
 			</TextBox>
-			<TextBox v-model="base64" class="box">
+			<TextBox v-model="base64" inputClass="taller-box" class="tbox-wrapper">
 				<h1>Base64</h1>
 			</TextBox>
 		</div>
@@ -89,9 +89,13 @@ export default class Base64 extends Vue {
 	flex-wrap: wrap;
 }
 
-.box {
+.tbox-wrapper {
 	width: 300px;
 	margin: 20px;
+}
+
+::v-deep .taller-box {
+	height: 100px;
 }
 
 .error {
