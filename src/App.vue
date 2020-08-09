@@ -1,6 +1,8 @@
 <template>
 	<div id="app">
-		<div class="background" v-html="bgWord"></div>
+		<div class="background">
+			<div class="bg-text">{{bgText}}</div>
+		</div>
 		<Navbar :links="links" />
 		<main class="page-container">
 			<router-view class="page"/>
@@ -19,7 +21,7 @@ import Navbar from "./components/Navbar.vue";
 export default class App extends Vue {
 	public links: Array<{ name: string; url: string; defClass?: string }> = [];
 
-	public bgWord: string = "beans".repeat(2000);
+	public bgText: string = "beans".repeat(2000);
 
 	created() {
 		this.links = this!.$router!.options!.routes!.map((route) => {
@@ -40,10 +42,11 @@ body {
 }
 
 .page-container {
-	padding-top: 75px;
+	padding: 75px 0px;
 }
 
 #app {
+	position: relative;
 	margin: 0;
 
 	font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -82,20 +85,28 @@ body {
 }
 
 .background {
-	position: fixed;
-	width: 125%;
-	z-index: -1;
+	position: absolute;
+	height: 100%;
+	min-height: 100vh;
+	width: 100%;
+	overflow: hidden;
+
 	user-select: none;
+	z-index: -1;
+}
+
+.bg-text {
+
+	width: 125%;
+
+	background: #050505;
+	color: #020202;
 
 	font-family: mazeletter;
 	text-align: left;
 	font-size: 100px;
 	line-height: 101px;
-	word-break: break-all;
-
-	background: #050505;
-	color: #020202;
-
 	font-weight: bold;
+	word-break: break-all;
 }
 </style>
