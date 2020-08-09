@@ -1,12 +1,12 @@
 <template>
 	<div class="page-base64">
-		<h1>Base64 Converter</h1>
+		<h1 class="header">base64 converter</h1>
 		<div class="boxes">
 			<TextBox v-model="text" inputClass="taller-box" class="tbox-wrapper">
-				<h1>Text</h1>
+				<h2 class="subheader lowmargin">text</h2>
 			</TextBox>
 			<TextBox v-model="base64" inputClass="taller-box" class="tbox-wrapper">
-				<h1>Base64</h1>
+				<h2 class="subheader lowmargin">base64</h2>
 			</TextBox>
 		</div>
 		<div class="error">{{errorStr}}</div>
@@ -87,15 +87,20 @@ export default class Base64 extends Vue {
 	display: flex;
 	justify-content: center;
 	flex-wrap: wrap;
+	margin-top: 50px;
 }
 
 .tbox-wrapper {
 	width: 300px;
-	margin: 20px;
+	margin: 0 20px;
 }
 
 ::v-deep .taller-box {
 	height: 100px;
+}
+
+.lowmargin {
+	margin-bottom: 10px;
 }
 
 .error {

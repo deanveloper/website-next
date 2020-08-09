@@ -20,9 +20,9 @@ export default class DataDisplay extends Vue {
 	padding: 10px 15px;
 	border-radius: 10px;
 
-	background-color: gray;
+	background-color: var(--static-component-bg);
 
-	box-shadow: 3px 3px rgba(255, 165, 0, 1);
+	box-shadow: 3px 3px var(--trim-color);
 }
 
 .dd-header {

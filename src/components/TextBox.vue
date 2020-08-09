@@ -40,10 +40,12 @@ export default class TextBox extends Vue {
 .text-box-input {
 	box-sizing: border-box;
 
-	box-shadow: 3px 3px rgba(255, 165, 0, 1);
+	box-shadow: 3px 3px var(--trim-color);
 	outline: 0;
 
-	background-color: white;
+	color: white;
+	background-color: var(--large-edit-component-bg);
+	
 	padding: 10px;
 
 	border-radius: 10px;

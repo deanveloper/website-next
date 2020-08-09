@@ -35,13 +35,13 @@ export default class NavbarElem extends Vue {
 	user-select: none;
 
 	transition: border-bottom 0.25s;
-	border-bottom: 3px solid rgba(255, 165, 0, 0.1);
+	border-bottom: 3px solid var(--base-color-inactive);
 	&:hover, &:focus {
 		outline: 0;
-		border-bottom: 3px solid rgba(255, 165, 0, 0.4);
+		border-bottom: 3px solid var(--base-color-almost);
 	}
 	&.navbar-item-exact {
-		border-bottom: 3px solid rgba(255, 165, 0, 0.8);
+		border-bottom: 3px solid var(--base-color-active);
 	}
 }
 </style>

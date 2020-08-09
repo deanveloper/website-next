@@ -1,7 +1,7 @@
 <template>
 	<div class="page-about">
-		<h1 class="name">dean bassett</h1>
-		<h3 class="job">works at veeva systems</h3>
+		<h1 class="header">dean bassett</h1>
+		<h3 class="subheader">works at veeva systems</h3>
 		<hr class="bar" />
 		<section class="i-do games">
 			you can find me playing
@@ -48,20 +48,15 @@ export default class About extends Vue {
 	text-align: left;
 }
 
-.bar {
-	border: 0;
-	border-bottom: 1px solid grey;
-}
-
-.name {
+.header {
 	margin: 0;
-	color: rgb(255, 145, 0);
+	color: var(--base-color);
 	font-size: 80px;
 }
 
-.job {
-	margin-top: 0;
-	color: #AAA;
+.bar {
+	border: 0;
+	border-bottom: 1px solid grey;
 }
 
 .i-do {
@@ -73,12 +68,12 @@ export default class About extends Vue {
 ::v-deep .game-trigger {
 	cursor: pointer;
 	
-	color: rgb(255, 161, 37);
+	color: var(--highlight-color);
 }
 
 .social-link {
 	text-decoration: none;
 
-	color: rgb(255, 161, 37);
+	color: var(--highlight-color);
 }
 </style>

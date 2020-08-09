@@ -35,6 +35,28 @@ export default class App extends Vue {
 </script>
 
 <style lang="scss">
+
+:root {
+	--background-bg: #0b0a0c;
+	--background-fg: #09080a;
+
+	--page-bg: #17141b;
+
+	--large-edit-component-bg: #11111b;
+	--static-component-bg: #48485c;
+
+	--base-color: rgb(255, 145, 0);
+	--base-color-inactive: rgba(225, 145, 0, 0.2);
+	--base-color-almost: rgba(225, 145, 0, 0.5);
+	--base-color-active: rgba(225, 145, 0);
+
+	--header-color: rgb(245, 200, 141);
+	--subheader-color: rgb(170, 113, 48);
+	--highlight-color: rgb(250, 185, 100);
+
+	--trim-color: rgb(56, 41, 26);
+}
+
 html,
 body {
 	padding: 0;
@@ -49,12 +71,22 @@ body {
 	position: relative;
 	margin: 0;
 
-	font-family: Avenir, Helvetica, Arial, sans-serif;
+	font-family: Roboto, Arial, sans-serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	text-align: center;
 
 	width: 100%;
+}
+
+.header {
+	color: var(--header-color);
+	font-family: Recursive, Helvetica, sans-serif;;
+}
+
+.subheader {
+	margin-top: 0;
+	color: var(--subheader-color);
 }
 
 .page {
@@ -65,7 +97,7 @@ body {
 	box-sizing: border-box;
 	padding: 30px;
 	
-	background-color: #101010;
+	background-color: var(--page-bg);
 	color: white;
 }
 
@@ -99,8 +131,8 @@ body {
 
 	width: 125%;
 
-	background: #050505;
-	color: #020202;
+	background: var(--background-bg);
+	color: var(--background-fg);
 
 	font-family: mazeletter;
 	text-align: left;

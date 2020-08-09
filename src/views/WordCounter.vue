@@ -1,6 +1,6 @@
 <template>
 	<div class="page-base64">
-		<h1>Word Counter</h1>
+		<h1 class="header">word counter</h1>
 		<div class="content-container">
 			<TextBox v-model="text" class="word-counter" inputClass="word-counter-input" />
 			<div class="stat-container">
@@ -68,7 +68,9 @@ export default class WordCounter extends Vue {
 
 ::v-deep .word-counter-input {
 	height: 500px;
-	max-height: 50vh
+	max-height: 50vh;
+
+	padding: 15px;
 }
 
 .stat-container {

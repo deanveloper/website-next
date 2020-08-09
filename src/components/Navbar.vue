@@ -30,6 +30,6 @@ export default class Navbar extends Vue {
 	flex-wrap: nowrap;
 	justify-content: center;
 
-	background: #101010;
+	background: var(--page-bg);
 }
 </style>
