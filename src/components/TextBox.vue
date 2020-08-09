@@ -17,8 +17,8 @@ export default class TextBox extends Vue {
 	@Prop({default: ""})
 	value!: string;
 
-	@Prop({default: ""})
-	inputClass!: string;
+	@Prop()
+	inputClass?: string;
 
 	get inputVal(): string {
 		return this.value;
