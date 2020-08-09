@@ -31,6 +31,12 @@
 			<a class="social-link" target="_blank" href="https://discord.gg/a9p7Jpm">discord</a>, and
 			<a class="social-link" target="_blank" href="https://www.twitch.tv/deanveloper">twitch</a>
 		</section>
+		<section class="i-do other">
+			oh and i guess here's my
+			<a class="social-link" target="_blank" href="https://www.github.com/deanveloper">github</a>,
+			<a class="social-link" target="_blank" href="mailto:dean@dbassett.dev">email</a>, and
+			<a class="social-link" target="_blank" href="https://dev.to/dean">blog</a>
+		</section>
 	</div>
 </template>
 
