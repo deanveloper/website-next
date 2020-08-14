@@ -33,7 +33,7 @@ export default class App extends Vue {
 		});
 	}
 
-	themeChange(theme) {
+	themeChange(theme: string) {
 		document.querySelector("html")!.dataset.theme = theme;
 	}
 }
