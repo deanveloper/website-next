@@ -92,7 +92,7 @@ export default class Base64 extends Vue {
 
 .tbox-wrapper {
 	width: 300px;
-	margin: 0 20px;
+	margin: 0 20px 20px;
 }
 
 ::v-deep .taller-box {

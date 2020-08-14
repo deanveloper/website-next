@@ -58,6 +58,8 @@ export default class About extends Vue {
 	margin: 0;
 	color: var(--base-color);
 	font-size: 80px;
+
+	transition: font-size 0.25s;
 }
 
 .bar {
@@ -69,6 +71,8 @@ export default class About extends Vue {
 	font-size: 32px;
 	font-weight: 400;
 	margin-top: 40px;
+	
+	transition: font-size 0.25s;
 }
 
 ::v-deep .game-trigger {
@@ -81,5 +85,29 @@ export default class About extends Vue {
 	text-decoration: none;
 
 	color: var(--highlight-color);
+}
+
+@media screen and (prefers-reduced-motion: reduce) {
+	.header {
+		transition: none;
+	}
+	
+	.i-do {
+		transition: none;
+	}
+}
+
+@media screen and (max-width: 670px) {
+	.header {
+		margin: 0;
+		color: var(--base-color);
+		font-size: 50px;
+	}
+	
+	.i-do {
+		font-size: 20px;
+		font-weight: 400;
+		margin-top: 40px;
+	}
 }
 </style>

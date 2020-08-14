@@ -34,7 +34,7 @@ export default class TextBox extends Vue {
 <style scoped lang="scss">
 .text-box-container {
 	display: inline-block;
-	color: white;
+	color: var(--default-text-color);
 }
 
 .text-box-input {
@@ -43,7 +43,7 @@ export default class TextBox extends Vue {
 	box-shadow: 3px 3px var(--trim-color);
 	outline: 0;
 
-	color: white;
+	color: var(--default-text-color);
 	background-color: var(--large-edit-component-bg);
 	
 	padding: 10px;

@@ -95,7 +95,7 @@ export default class TextBox extends Vue {
 	padding: 5px;
 	border-radius: 5px;
 	border: 1px solid gray;
-	background: black;
+	background: var(--background-bg);
 	font-size: 16px;
 
 	z-index: 10;

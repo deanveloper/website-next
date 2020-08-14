@@ -3,7 +3,7 @@
 		<div class="background">
 			<div class="bg-text">{{bgText}}</div>
 		</div>
-		<Navbar :links="links" />
+		<Navbar :links="links" @theme-change="themeChange" />
 		<main class="page-container">
 			<router-view class="page"/>
 		</main>
@@ -13,7 +13,7 @@
 <script lang="ts">
 import 'vue-router';
 import { Component, Vue } from "vue-property-decorator";
-import Navbar from "./components/Navbar.vue";
+import Navbar from "./components/navbar/Navbar.vue";
 
 @Component({
 	components: { Navbar },
@@ -22,6 +22,7 @@ export default class App extends Vue {
 	public links: Array<{ name: string; url: string; defClass?: string }> = [];
 
 	public bgText: string = "beans".repeat(2000);
+	public lightTheme: boolean = false;
 
 	created() {
 		this.links = this!.$router!.options!.routes!.map((route) => {
@@ -31,16 +32,21 @@ export default class App extends Vue {
 			};
 		});
 	}
+
+	themeChange(theme) {
+		document.querySelector("html")!.dataset.theme = theme;
+	}
 }
 </script>
 
 <style lang="scss">
 
-:root {
+html {
 	--background-bg: #0b0a0c;
 	--background-fg: #09080a;
 
 	--page-bg: #17141b;
+	--default-text-color: #FFFFFF;
 
 	--large-edit-component-bg: #11111b;
 	--static-component-bg: #48485c;
@@ -53,6 +59,28 @@ export default class App extends Vue {
 	--header-color: rgb(245, 200, 141);
 	--subheader-color: rgb(170, 113, 48);
 	--highlight-color: rgb(250, 185, 100);
+
+	--trim-color: rgb(56, 41, 26);
+}
+
+html[data-theme='light'] {
+	--background-bg: #d9e1ec;
+	--background-fg: #e3e7f5;
+
+	--page-bg: #e6f4f7;
+	--default-text-color: #000000;
+
+	--large-edit-component-bg: #f3e9d4;
+	--static-component-bg: #e9be6f;
+
+	--base-color: rgb(255, 145, 0);
+	--base-color-inactive: rgba(126, 92, 28, 0.2);
+	--base-color-almost: rgba(126, 92, 28, 0.5);
+	--base-color-active: rgb(126, 92, 28);
+
+	--header-color: rgb(245, 200, 141);
+	--subheader-color: rgb(202, 161, 115);
+	--highlight-color: rgb(194, 114, 10);
 
 	--trim-color: rgb(56, 41, 26);
 }
@@ -75,6 +103,7 @@ body {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	text-align: center;
+	color: var(--default-text-color);
 
 	width: 100%;
 }
@@ -98,22 +127,6 @@ body {
 	padding: 30px;
 	
 	background-color: var(--page-bg);
-	color: white;
-}
-
-@font-face {
-	font-family: mazeletter;
-
-	src: url("./assets/mazeletter-path.eot");
-
-	src: url("./assets/mazeletter-path.eot") format("embedded-opentype"),
-		url("./assets/mazeletter-path.woff") format("woff"),
-		url("./assets/mazeletter-path.woff2") format("woff2"),
-		url("./assets/mazeletter-path.ttf") format("truetype"),
-		url("./assets/mazeletter-path.svg") format("svg");
-
-	font-weight: normal;
-	font-style: normal;
 }
 
 .background {
@@ -140,5 +153,20 @@ body {
 	line-height: 101px;
 	font-weight: bold;
 	word-break: break-all;
+}
+
+@font-face {
+	font-family: mazeletter;
+
+	src: url("./assets/mazeletter-path.eot");
+
+	src: url("./assets/mazeletter-path.eot") format("embedded-opentype"),
+		url("./assets/mazeletter-path.woff") format("woff"),
+		url("./assets/mazeletter-path.woff2") format("woff2"),
+		url("./assets/mazeletter-path.ttf") format("truetype"),
+		url("./assets/mazeletter-path.svg") format("svg");
+
+	font-weight: normal;
+	font-style: normal;
 }
 </style>
